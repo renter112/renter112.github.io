@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js" defer></script>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/normalize.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono" rel="stylesheet">
+    <title>Start Page</title>
+</head>
+<body class="day">
+    <section class="searchBar">
+        <input type="search" name="search" id="search" autofocus placeholder="Search">
+    </section>
+    <section class="links material-symbols-outlined">
+        <a href="https://youtube.com">play_circle</a>
+        <a href="https://mycourselink.lakeheadu.ca/d2l/home">school</a>
+        <a href="https://music.youtube.com">music_note</a>
+        <a href="https://fmovies.to/home">movie</a>
+        <a href="https://drive.google.com">cloud_download</a>
+        <a href="https://mail.google.com/mail/u/1/">email</a>
+    </section>
+    <br/>
+    <section class="extras material-symbols-outlined">
+        <a  id="time"></a>
+        <span class="colorSchemeToggle"><button id="lightMode" class="day">light_mode</button><button id="darkMode" class="night">dark_mode</button></span>
+        <button id="settingsBtn">settings</button>
+    </section>
+    <section class="settings">
+        <section class="txt-settings">    
+            <label for="colorPicker">Text Colour:</label>
+            <input name="colorPicker" type="color" id="txtC" class="colorInput">
+            <label for="restoreBtn">Restore Defaults:</label>
+            <button name="restoreBtn" class="material-symbols-outlined" id="restartBtn">restart_alt</button>
+        </section>
+        <br/>
+        <section class="bg-settings">
+            <label for="backgroundPicker">Background Gradient:</label>
+            <input name="backgroundPicker" type="color" id="bgTopC" class="colorInput">
+            <input name="backgroundPicker" type="color" id="bgMidC" class="colorInput">
+            <input name="backgroundPicker" type="color" id="bgBtmC" class="colorInput">
+        </section>
+    </section>
+</body>
+</html>

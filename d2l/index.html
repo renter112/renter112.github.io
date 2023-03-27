@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .courseList {display: flex;flex-wrap: wrap}
+        body{background-color:#111;color:#EEE}
+        .course{border:1px solid #EEE;width:22vw;font-size:1em;margin:20px 2vh}
+        .title{border-bottom:1px solid #AAA;background-color:#333}
+        .details{display:grid;margin:8px}
+        a{margin:4px;padding:4px;text-decoration:none;-webkit-text-emphasis:none;text-emphasis:none;color:#EEE}
+        a:hover{background-color:#222}
+        a.titleLink{margin:0;padding:0}
+        .title:hover{background-color:#222}
+        div.title>a>h1{margin-bottom:1px;margin-top:0;padding-top:10px;padding-left:8px}
+        div.title>a>h3{margin-top:1px;padding-left:10px}
+        form{padding: 5px;margin: 20px;}
+        button{ background-color:#333;color:#EEE;padding:6px 12px;border:none;border-radius:4px;cursor:pointer;font-size:16px}
+        button:hover{background-color:#222}
+        label{font-size:16px;padding:6px 12px}
+        input{background-color: #333;color:#EEE;padding:6px 12px;border:none;border-radius:4px;cursor:pointer;font-size:16px;}
+        input:focus {outline:none;box-shadow:0 0 2px #222, 0 0 4px #222;}
+        input:hover {background-color: #222;}
+        h2{display: inline;}
+        details{border:2px solid #AAA;border-radius:4px;padding:6px 12px}
+    </style>
+    <title>BetterD2L</title>
+</head>
+<body>
+    <h1>D2L:2</h1>
+    <div class="courseList"></div>
+    <details>
+        <summary><h2>Add Or Remove a Course</h2></summary>
+        <form id="createCourse">
+            <label for="cName">Course Name:</label>
+            <input type="text" name="cName" id="cName" required>
+            <label for="cCode">Course Code:</label>
+            <input type="text" name="cCode" id="cCode" required>
+            <label for="cLink">Course url-number:</label>
+            <input type="text" name="cLink" id="cLink" required >
+            <button type="submit">Create</button>
+        </form>
+        <form id="deleteCourse">
+            <label for="cDelete">Delete Course Number:</label>
+            <input type="text" name="cDelete" id="cDelete" required>
+            <button type="submit">Delete</button>
+        </form>
+    </details>
+    <script>
+        const courseList = document.querySelector("div.courseList");
+        const formCreate = document.querySelector('#createCourse');
+        const formDelete = document.querySelector('#deleteCourse');
+        let cList = [];
+        for(let i=0; i<10; i++) {
+            if(localStorage.getItem(`c${i}`)){
+                cList.push(localStorage.getItem(`c${i}`));
+            }
+        }
+        cList.forEach(c => createDiv(c.split("Ж")))
+
+        formCreate.addEventListener('submit',function (e) {
+            e.preventDefault();
+            let newCourse =  `${document.querySelector('#cName').value}Ж${document.querySelector("#cCode").value}Ж${document.querySelector("#cLink").value}`;
+            cList.push(newCourse);
+            updateStorage();
+        });
+        formDelete.addEventListener('submit',function (e) {
+            e.preventDefault();
+            cList.splice(document.querySelector('#cDelete').value -1,1);
+            updateStorage();
+        });
+        function updateStorage(){
+            localStorage.clear();
+            cList.forEach((c,i) => {
+                localStorage.setItem(`c${i}`,c);
+            });
+            location.reload();
+        }
+        function createDiv(c) {
+            let d1 = document.createElement("div"); // main div
+            d1.classList.add("course");
+            let d2 = document.createElement("div"); // title div
+            d2.classList.add("title");
+            let a1 = document.createElement('a'); // title link
+            a1.classList.add("titleLink");
+            a1.href = `https://mycourselink.lakeheadu.ca/d2l/home/${c[2]}`;
+            let h1 = document.createElement("h1"); // title
+            h1.textContent = `${c[1]}`;
+            let h3 = document.createElement("h3"); // title desc
+            h3.textContent = `${c[0]}`;
+            a1.appendChild(h1);
+            a1.appendChild(h3);
+            d2.appendChild(a1);
+            let dl = document.createElement("div"); // links div
+            dl.classList.add("details");
+            const aC = document.createElement("a"); // content link
+            aC.href = `https://mycourselink.lakeheadu.ca/d2l/le/content/${c[2]}/Home`;
+            aC.textContent = "Content";
+            const aA = document.createElement("a"); // assignment link
+            aA.href = `https://mycourselink.lakeheadu.ca/d2l/lms/dropbox/user/folders_list.d2l?ou=${c[2]}`;
+            aA.textContent = "Assignments";
+            const aQ = document.createElement("a");
+            aQ.href = `https://mycourselink.lakeheadu.ca/d2l/lms/quizzing/user/quizzes_list.d2l?ou=${c[2]}`;
+            aQ.textContent = "Quizzes";
+            dl.appendChild(aC);
+            dl.appendChild(aA);
+            dl.appendChild(aQ);
+            d1.appendChild(d2);
+            d1.appendChild(dl);
+
+            courseList.appendChild(d1);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+:root {
+    --bg-day-top: #ffc1e3;
+    --bg-day-mid: #f48fb1;
+    --bg-day-btm: #bf5f82;
+    --bg-day: linear-gradient(var(--bg-day-top),var(--bg-day-mid),var(--bg-day-btm));
+    --text-day: #323232;
+
+    --bg-night-top: #7c437c;
+    --bg-night-mid: #4a148c;
+    --bg-night-btm: #12005e;
+    --bg-night: linear-gradient(var(--bg-night-top),var(--bg-night-mid),var(--bg-night-btm));
+    --text-night: #DEDEDE;
+
+}
+
+html {
+    height: 100%;
+    text-align: center;
+    font-family: 'JetBrains Mono', 'mono space';
+}
+
+/* Main search */
+#search {
+    background: transparent;
+    width: 100%;
+    border: transparent;
+    font-family: 'JetBrains Mono', 'mono space';
+    font-size: 22vmin;
+    text-align: center;
+    color: inherit;
+}
+input:focus{
+    outline: transparent;
+}
+section.searchBar{
+    margin-top: 40vh;
+}
+
+
+/* Icon tab */
+section.links {
+    margin: 1vmin 0px;
+}
+section.links > a {
+    text-decoration: none;
+    padding: 1.5vmin;
+    font-size: 5vmin;
+    color: inherit;
+}
+
+/* Extra tab */
+section.extras {
+    font-size: 2vmin;
+    padding: 2.5vmin;
+}
+span.colorSchemeToggle {
+    border-color: inherit;
+    border-style: solid;
+    border-radius: 3px;
+    border-radius: 500px;
+}
+span.colorSchemeToggle > button {
+    border: 0;
+    outline: transparent;
+    background: transparent;
+}
+
+/* Settings */
+section.settings {
+    visibility: hidden;
+    background-color: rgba(222, 222, 222, 0.5);
+    width: fit-content;
+    margin: 0px auto;
+    padding: 1vmin 5vmin;
+    border-radius: 500px;
+}
+#settingsBtn {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: 2.5vmin;
+    padding: 4px 5.575px;
+}
+.colorInput {
+    background: transparent;
+    height: 2vmin;
+    padding: 0;
+    border-width: 2px;
+    color: inherit;
+    border-style: solid;
+}
+section > section > label {
+    font-size: 2vmin;
+}
+#txtC {
+    margin-right: 5px;
+}
+#restartBtn {
+    font-size: 1.8vmin;
+    background: transparent;
+    color: inherit;
+    border-width: 2px;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 500px;
+    padding: 2px;
+}
+
+/* Day-theme */
+.day {
+    background: no-repeat var(--bg-day);
+    color: var(--text-day);
+}
+body.day > section > span.colorSchemeToggle > button#darkMode {
+    background-color: transparent;
+    color: var(--text-day)
+}
+body.day > section > span.colorSchemeToggle > button#lightMode {
+    background-color: var(--text-day);
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+    color: var(--text-night);
+}
+body.day >section.links > a:hover {
+    background: radial-gradient(circle 4vmin at center, var(--text-day), transparent);
+}
+
+/* Night-theme */
+.night {
+    background: no-repeat var(--bg-night);
+    color: var(--text-night);
+}
+body.night > section > span.colorSchemeToggle > button#lightMode {
+    background-color: transparent;
+    color: var(--text-night);
+}
+body.night > section > span.colorSchemeToggle > button#darkMode {
+    background-color: var(--text-night);
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+    color: var(--text-day);
+}
+body.night >section.links > a:hover {
+    background: radial-gradient(circle 4vmin at center, var(--text-night), transparent);
+}
+
+
+button.settingsOpen#settingsBtn {
+    background: rgba(222, 222, 222, 0.5);
+    border-radius: 500px;
+}
