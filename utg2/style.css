@@ -1,0 +1,244 @@
+:root {
+    --dark: #0a0908;
+    --white: #fbfaf8;
+    --green: #256b41;
+    --cream: #e7decd;
+    --brown: #804e49;
+    --bckgd: #444444;
+}
+
+@font-face {
+    font-family: PixCon;
+    src: url(PixCon.ttf);
+}
+
+#topNav, #profileBtn {
+    background-color: #351;
+    padding-bottom: 2px;
+}
+
+header {
+    font-family: PixCon, serif;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: var(--green);
+    text-align: right;
+}
+
+div a, button a, .downloadButton, #uploadButton, .custom-file-upload {
+    text-decoration: none;
+    color: var(--cream);
+    padding: 2px 6px;
+}
+
+div a, .downloadButton, .custom-file-upload, #uploadButton {
+    background-color: var(--green);
+}
+
+
+button a {
+    background-color: var(--dark);
+    float: right;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    margin-right: 20px;
+}
+
+div a:hover {
+    background-color: var(--dark);
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: var(--green);
+    display: flex;
+    justify-content: center;
+}
+
+.navbar a {
+    float: left;
+    font-size: 14px;
+    color: var(--dark);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 15%;
+}
+
+.burger-menu {
+    display: none;
+}
+
+@media screen and (max-width: 1300px) {
+    .navbar .nav-btn {
+        position: absolute;
+        left: -600px;
+    }
+    .navbar.active .nav-btn {
+        position: relative;
+        left: 0;
+    }
+    .navbar.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the left */
+    }
+    .gridGenerateButton:hover {
+        background-color: var(--cream);
+    }
+
+    .navbar.active a.nav-btn {
+        display: block;
+        font-size: 14px;
+        color: var(--dark);
+        text-align: left;
+        padding: 14px 16px;
+        text-decoration: none;
+        margin-bottom: 10px;
+        width: auto;
+        background-color: var(--green);
+    }
+
+    .burger-menu::before {
+        content: '\2630';
+        font-size: 1.5rem;
+        text-align: left;
+    }
+
+    .burger-menu {
+        display: block;
+        width: 50px;
+        background-color: var(--green);
+    }
+
+    #icon {
+        visibility: visible;
+        font-size: 16px;
+        display:none
+    }
+}
+
+
+.navbar a:hover{
+    background-color: var(--cream);
+}
+
+body {
+    font-family: PixCon, serif;
+    background-color: var(--bckgd);
+    color: var(--cream);
+    margin: 0;
+    display: flex;
+    padding: 50px 20px 0;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    display: block;
+}
+
+.item {
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#icon {
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    width: 90px;
+    height: auto;
+    z-index: 1;
+    border-radius: 300000px;
+    box-shadow: 0px 0px 5px 1px #FFF;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 6.5rem; /* Footer height */
+    padding-top: 2.5rem; /* header height */
+}
+
+footer {
+    font-family: PixCon, serif;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: 2.5rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.paragraphDiv {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    padding-top: 90px;
+}
+
+.screenshot {
+    height: 50%;
+    width: 50%;
+    display: block;
+    margin: 20px auto;
+}
+
+.screenrec {
+    height: 85%;
+    width: 85%;
+    display: block;
+    margin: 20px auto;
+}
+.navbar i {
+    color: var(--dark);
+}
+
+@media (max-width: 900px) {
+    #topNav {
+        display: none;
+    }
+}
+.right-button,.left-button{
+    border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--cream);
+  background-color: var(--green);
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  top: 50%;
+  left: 0;
+  transform: translate(0%,-50%);
+}
+.right-button:hover,.left-button:hover{
+    color: var(--cream) ;
+  background-color: var(--dark);
+}
+.grid {
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
